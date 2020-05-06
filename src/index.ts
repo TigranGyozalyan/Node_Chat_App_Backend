@@ -1,16 +1,13 @@
 import express from 'express';
-import http from 'http';
-import socketIo from 'socket.io';
 
-const app: express.Application = express();
-const port = 3000;
+import '../env';
+import loaders from './loaders';
 
-const server = http.createServer(app);
+async function init() {
+  const app: express.Application = express();
+  const server = await loaders({ app });
 
-app.get('/', (req, res): void => {
-    res.send('Hello World')
-});
+  server.listen(process.env.PORT, () => console.log(`Example app listening on port ${process.env.PORT}!`));
+}
 
-const io = socketIo(server);
-
-server.listen(port, () => console.log(`Example app listening on port ${port}!`));
+init();
