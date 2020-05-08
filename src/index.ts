@@ -1,6 +1,8 @@
 import express from 'express';
 
 import '../env';
+import 'reflect-metadata';
+
 import loaders from './loaders';
 
 async function init() {

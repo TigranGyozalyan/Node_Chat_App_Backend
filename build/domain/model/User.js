@@ -4,8 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
-const EncryptionService_1 = __importDefault(require("../../service/EncryptionService"));
-const UserSchema = new mongoose_1.Schema({
+const isEmail_1 = __importDefault(require("validator/lib/isEmail"));
+const EncryptionUtil_1 = __importDefault(require("../../util/EncryptionUtil"));
+const userSchema = new mongoose_1.Schema({
     firstName: {
         type: String,
         required: true,
@@ -18,6 +19,14 @@ const UserSchema = new mongoose_1.Schema({
         required: true,
         unique: true,
         lowercase: true,
+        validator: {
+            validate: (email) => {
+                if (isEmail_1.default(email)) {
+                    return true;
+                }
+                throw new Error('Invalid email');
+            },
+        },
     },
     password: {
         type: String,
@@ -25,10 +34,10 @@ const UserSchema = new mongoose_1.Schema({
     },
 });
 // eslint-disable-next-line func-names
-UserSchema.pre('save', function (next) {
+userSchema.pre('save', function (next) {
     if (this.isModified('password')) {
-        this.password = EncryptionService_1.default.encrypt(this.password);
+        this.password = EncryptionUtil_1.default.encrypt(this.password);
     }
     next();
 });
-exports.default = mongoose_1.model('User', UserSchema);
+exports.default = mongoose_1.model('User', userSchema);

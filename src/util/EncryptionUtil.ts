@@ -1,7 +1,7 @@
 /* eslint-disable no-bitwise,no-mixed-operators */
 const utf8 = require('utf8');
 
-class EncryptionService {
+class EncryptionUtil {
   public static encrypt(plainText: string): string {
     const encodedMsg = utf8.encode(plainText);
 
@@ -11,12 +11,12 @@ class EncryptionService {
     let H3 = 0x10325476;
     let H4 = 0xC3D2E1F0;
 
-    const wordArray = EncryptionService.getWordBlocks(encodedMsg);
+    const wordArray = EncryptionUtil.getWordBlocks(encodedMsg);
 
     wordArray.forEach((block) => {
       const word = [...block];
 
-      const { rotateLeft } = EncryptionService;
+      const { rotateLeft } = EncryptionUtil;
 
       // Extend the sixteen 32-bit words into eighty 32-bit words
       for (let i = 16; i <= 79; i++) {
@@ -76,11 +76,11 @@ class EncryptionService {
 
 
     return (
-      EncryptionService.hexToString(H0 << 128)
-        + EncryptionService.hexToString(H1 << 96)
-        + EncryptionService.hexToString(H2 << 64)
-        + EncryptionService.hexToString(H3 << 32)
-        + EncryptionService.hexToString(H4)
+      EncryptionUtil.hexToString(H0 << 128)
+        + EncryptionUtil.hexToString(H1 << 96)
+        + EncryptionUtil.hexToString(H2 << 64)
+        + EncryptionUtil.hexToString(H3 << 32)
+        + EncryptionUtil.hexToString(H4)
     );
   }
 
@@ -151,4 +151,4 @@ class EncryptionService {
   }
 }
 
-export default EncryptionService;
+export default EncryptionUtil;

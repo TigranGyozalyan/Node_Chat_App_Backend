@@ -1,16 +1,17 @@
 import {
-  Document, model, Schema, Model,
+  Document, Model, model, Schema,
 } from 'mongoose';
-import EncryptionService from '../../service/EncryptionService';
+import isEmail from 'validator/lib/isEmail';
+import EncryptionUtil from '../../util/EncryptionUtil';
 
-export interface IUser extends Document{
+export interface IUser extends Document {
   firstName: string;
   lastName?: string;
   email: string;
   password: string;
 }
 
-const UserSchema = new Schema({
+const userSchema: Schema = new Schema({
   firstName: {
     type: String,
     required: true,
@@ -23,6 +24,14 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
     lowercase: true,
+    validator: {
+      validate: (email: string) => {
+        if (isEmail(email)) {
+          return true;
+        }
+        throw new Error('Invalid email');
+      },
+    },
   },
   password: {
     type: String,
@@ -31,13 +40,11 @@ const UserSchema = new Schema({
 });
 
 // eslint-disable-next-line func-names
-UserSchema.pre<IUser>('save', function (next: Function): void {
+userSchema.pre<IUser>('save', function (next): void {
   if (this.isModified('password')) {
-    this.password = EncryptionService.encrypt(this.password);
+    this.password = EncryptionUtil.encrypt(this.password);
   }
   next();
 });
 
-export interface IUserModel extends Model<IUser> { }
-
-export default model<IUser, IUserModel>('User', UserSchema);
+export default model<IUser>('User', userSchema);
