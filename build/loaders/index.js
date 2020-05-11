@@ -3,12 +3,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = __importDefault(require("./mongoose"));
-const express_1 = __importDefault(require("./express"));
-const socketio_1 = __importDefault(require("./socketio"));
+const mongooseLoader_1 = __importDefault(require("./mongooseLoader"));
+const expressLoader_1 = __importDefault(require("./expressLoader"));
+const socketioLoader_1 = __importDefault(require("./socketioLoader"));
 exports.default = async ({ app }) => {
-    await mongoose_1.default();
-    const server = await express_1.default({ app });
-    await socketio_1.default(server);
+    await mongooseLoader_1.default();
+    const server = await expressLoader_1.default({ app });
+    await socketioLoader_1.default(server);
     return server;
 };

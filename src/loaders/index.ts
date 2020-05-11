@@ -1,8 +1,8 @@
 import express from 'express';
 import { Server } from 'http';
-import mongooseLoader from './mongoose';
-import expressLoader from './express';
-import socketioLoader from './socketio';
+import mongooseLoader from './mongooseLoader';
+import expressLoader from './expressLoader';
+import socketioLoader from './socketioLoader';
 
 export default async ({ app } : {app: express.Application}): Promise<Server> => {
   await mongooseLoader();

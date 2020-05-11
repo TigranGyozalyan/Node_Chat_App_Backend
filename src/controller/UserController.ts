@@ -2,9 +2,10 @@ import express, { Router } from 'express';
 import { Container } from 'typedi';
 
 import UserService from '../service/UserService';
+import { loginMiddleware, authMiddleware } from '../security';
+
 
 const userRouter: Router = express.Router();
-
 const userService: UserService = Container.get(UserService);
 
 userRouter.post('/user', async (req, res) => {
@@ -16,5 +17,19 @@ userRouter.post('/user', async (req, res) => {
       .send(e.message);
   }
 });
+
+userRouter.get('/user', authMiddleware, async (req, res) => {
+  try {
+    const user = await userService.getUserById(req.user);
+    res
+      .status(200)
+      .send(user);
+  } catch (e) {
+    res.status(e.statusCode)
+      .send(e.message);
+  }
+});
+
+userRouter.post('/login', loginMiddleware);
 
 export default userRouter;

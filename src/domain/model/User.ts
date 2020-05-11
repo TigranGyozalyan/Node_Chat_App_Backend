@@ -1,14 +1,20 @@
+/* eslint-disable func-names */
 import {
   Document, Model, model, Schema,
 } from 'mongoose';
 import isEmail from 'validator/lib/isEmail';
 import EncryptionUtil from '../../util/EncryptionUtil';
+import { UserPrincipal } from '../dto/UserPrincipal';
 
 export interface IUser extends Document {
   firstName: string;
   lastName?: string;
   email: string;
   password: string;
+}
+
+export interface IUserModel extends Model<IUser> {
+  findByCredentials(principal: UserPrincipal): Promise<IUser>
 }
 
 const userSchema: Schema = new Schema({
@@ -39,7 +45,6 @@ const userSchema: Schema = new Schema({
   },
 });
 
-// eslint-disable-next-line func-names
 userSchema.pre<IUser>('save', function (next): void {
   if (this.isModified('password')) {
     this.password = EncryptionUtil.encrypt(this.password);
@@ -47,4 +52,9 @@ userSchema.pre<IUser>('save', function (next): void {
   next();
 });
 
-export default model<IUser>('User', userSchema);
+userSchema.statics.findByCredentials = async function (principal: UserPrincipal): Promise<IUser> {
+  const user: IUser[] = await this.find({ email: principal.email, password: principal.password });
+  return user[0];
+};
+
+export default model<IUser, IUserModel>('User', userSchema);

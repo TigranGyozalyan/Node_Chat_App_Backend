@@ -2,18 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89fde56a-15ff-449b-9646-7c268143ba67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/domain/dto/UserDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/UserService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/domain/dto/UserPrincipal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/exception/UserNotFoundError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/loaders/expressLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/loaders/mongooseLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/loaders/socketioLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/mapper/Mapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/security/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/service/JWTService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/types/global/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/dto/UserPrincipal.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exception/UserNotFoundError.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mapper/Mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/security/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/JWTService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typings/express/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/controller/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/controller/UserController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/domain/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/domain/model/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/loaders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/loaders/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/service/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service/UserService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/UserController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/dto/UserDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/dto/UserDto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/model/User.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/EncryptionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/EncryptionUtil.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/express.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/expressLoader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/mongoose.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/mongooseLoader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/socketio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/loaders/socketioLoader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +72,7 @@
     <property name="javascript.karma.karma_node_package_dir" value="" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/.bin/env-cmd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/.bin/ts-node" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -70,17 +91,18 @@
       <recent name="C:\Users\tikog\Desktop\kursach\node" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\tikog\Desktop\kursach\node\src\util" />
-      <recent name="C:\Users\tikog\Desktop\kursach\node\src\config\environments" />
+      <recent name="C:\Users\tikog\Desktop\kursach\node\typings\express" />
+      <recent name="C:\Users\tikog\Desktop\kursach\node\typings" />
+      <recent name="C:\Users\tikog\Desktop\kursach\node" />
       <recent name="C:\Users\tikog\Desktop\kursach\node\src" />
-      <recent name="C:\Users\tikog\Desktop\kursach\node\src\domain" />
+      <recent name="C:\Users\tikog\Desktop\kursach\node\src\types\express" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.index.ts">
     <configuration default="true" type="NodeJSConfigurationType" path-to-js-file="src/index.ts" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="index.ts" type="NodeJSConfigurationType" application-parameters="--project tsconfig.json" nameIsGenerated="true" node-parameters="--require ts-node/register " path-to-js-file="src/index.ts" working-dir="$PROJECT_DIR$">
+    <configuration name="index.ts" type="NodeJSConfigurationType" application-parameters="--project tsconfig.json" nameIsGenerated="true" node-parameters=" --require ts-node/register" path-to-js-file="src/index.ts" working-dir="$PROJECT_DIR$">
       <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
         <browser start="true" with-js-debugger="true" url="http://localhost:62006" />
       </EXTENSION>
@@ -102,6 +124,25 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="preload" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="preload" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.index.ts" />
+      <item itemvalue="npm.preload" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.preload" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -120,6 +161,8 @@
       <workItem from="1588232448609" duration="7080000" />
       <workItem from="1588752066165" duration="26389000" />
       <workItem from="1588938802641" duration="9000" />
+      <workItem from="1588940416087" duration="185000" />
+      <workItem from="1589190608023" duration="22718000" />
     </task>
     <servers />
   </component>
@@ -135,102 +178,106 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="686" y="149" key="#Web_Browsers/0.0.1536.824@0.0.1536.824" timestamp="1588158266197" />
-    <state x="183" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588768370071">
+    <state x="138" y="85" width="1089" height="696" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589215475564">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="183" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588768370071" />
-    <state x="323" y="142" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1588767460894">
+    <state x="138" y="85" width="1089" height="696" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589215475564" />
+    <state x="323" y="142" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1589213460924">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="323" y="142" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1588767460894" />
-    <state x="497" y="275" width="460" height="341" key="#com.intellij.tools.ToolEditorDialog" timestamp="1588767512397">
+    <state x="323" y="142" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1589213460924" />
+    <state x="497" y="275" width="460" height="341" key="#com.intellij.tools.ToolEditorDialog" timestamp="1589213499181">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="497" y="275" width="460" height="341" key="#com.intellij.tools.ToolEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1588767512397" />
-    <state x="524" y="119" key="#xdebugger.evaluate" timestamp="1588774062436">
+    <state x="497" y="275" width="460" height="341" key="#com.intellij.tools.ToolEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1589213499181" />
+    <state x="618" y="181" width="843" height="585" key="#xdebugger.evaluate" timestamp="1589217465334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="524" y="119" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1588774062436" />
+    <state x="618" y="181" width="843" height="585" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1589217465334" />
     <state x="597" y="195" width="654" height="498" key="EnvironmentVariablesDialog" timestamp="1588766053796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="597" y="195" width="654" height="498" key="EnvironmentVariablesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588766053796" />
-    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1588767450558">
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1589213473389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588767450558" />
-    <state width="1515" height="259" key="GridCell.Tab.0.bottom" timestamp="1588857405224">
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589213473389" />
+    <state width="1515" height="259" key="GridCell.Tab.0.bottom" timestamp="1589217772409">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.0.center" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589217772409" />
+    <state width="1515" height="259" key="GridCell.Tab.0.center" timestamp="1589217772409">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.0.left" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589217772409" />
+    <state width="1515" height="259" key="GridCell.Tab.0.left" timestamp="1589217772409">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.0.right" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589217772409" />
+    <state width="1515" height="259" key="GridCell.Tab.0.right" timestamp="1589217772409">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.1.bottom" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589217772409" />
+    <state width="1515" height="259" key="GridCell.Tab.1.bottom" timestamp="1589217780267">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.1.center" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589217780267" />
+    <state width="1515" height="259" key="GridCell.Tab.1.center" timestamp="1589217780267">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.1.left" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589217780267" />
+    <state width="1515" height="259" key="GridCell.Tab.1.left" timestamp="1589217780267">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.1.right" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589217780267" />
+    <state width="1515" height="259" key="GridCell.Tab.1.right" timestamp="1589217780267">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.2.bottom" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589217780267" />
+    <state width="1515" height="259" key="GridCell.Tab.2.bottom" timestamp="1589217772329">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.2.center" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589217772329" />
+    <state width="1515" height="259" key="GridCell.Tab.2.center" timestamp="1589217772329">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.2.left" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1589217772329" />
+    <state width="1515" height="259" key="GridCell.Tab.2.left" timestamp="1589217772328">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.2.right" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1589217772328" />
+    <state width="1515" height="259" key="GridCell.Tab.2.right" timestamp="1589217772329">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.3.bottom" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1589217772329" />
+    <state width="1515" height="259" key="GridCell.Tab.3.bottom" timestamp="1589217772329">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.3.center" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589217772329" />
+    <state width="1515" height="259" key="GridCell.Tab.3.center" timestamp="1589217772329">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.3.left" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1589217772329" />
+    <state width="1515" height="259" key="GridCell.Tab.3.left" timestamp="1589217772329">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
-    <state width="1515" height="259" key="GridCell.Tab.3.right" timestamp="1588857405224">
+    <state width="1515" height="259" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1589217772329" />
+    <state width="1515" height="259" key="GridCell.Tab.3.right" timestamp="1589217772329">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="259" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1588857405224" />
+    <state width="1515" height="259" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1589217772329" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1588242282570">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588242282570" />
-    <state x="623" y="180" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey" timestamp="1588767513592">
+    <state x="623" y="180" width="449" height="528" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey" timestamp="1589213499685">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="623" y="180" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey/0.0.1536.824@0.0.1536.824" timestamp="1588767513592" />
+    <state x="623" y="180" width="449" height="528" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey/0.0.1536.824@0.0.1536.824" timestamp="1589213499685" />
+    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1589216096496">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1589216096496" />
     <state x="425" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1588236239126">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -12,4 +12,4 @@ async function init() {
     const server = await loaders_1.default({ app });
     server.listen(process.env.PORT, () => console.log(`Example app listening on port ${process.env.PORT}!`));
 }
-init();
+init().then(() => { });
