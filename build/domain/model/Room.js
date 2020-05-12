@@ -8,5 +8,15 @@ const RoomSchema = new mongoose_1.Schema({
             ref: 'User',
         },
     ],
+    messages: [
+        {
+            type: mongoose_1.Types.ObjectId,
+            ref: 'Message',
+        },
+    ],
 });
+RoomSchema.statics.findByUserId = async function (_id) {
+    const rooms = await this.find({ users: _id });
+    return rooms;
+};
 exports.default = mongoose_1.model('Room', RoomSchema);

@@ -8,13 +8,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const typedi_1 = require("typedi");
 let Mapper = class Mapper {
-    toDto(user) {
+    toUserDto(user) {
         const { firstName, lastName, email, _id, } = user;
         return {
             _id,
             firstName,
             lastName,
             email,
+        };
+    }
+    toRoomDto(room) {
+        const { users, messages, _id, } = room;
+        return {
+            _id,
+            users,
+            messages: messages.map((message) => this.toMessageDto(message)),
+        };
+    }
+    toMessageDto(message) {
+        const { content, postedAt, user, } = message;
+        return {
+            content,
+            postedAt,
+            byUser: user,
+        };
+    }
+    toPopulatedUserDto(user, rooms) {
+        const userDto = this.toUserDto(user);
+        return {
+            ...userDto,
+            rooms,
         };
     }
 };

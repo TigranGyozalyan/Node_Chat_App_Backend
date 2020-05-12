@@ -41,7 +41,15 @@ userSchema.pre('save', function (next) {
     next();
 });
 userSchema.statics.findByCredentials = async function (principal) {
-    const user = await this.find({ email: principal.email, password: principal.password });
-    return user[0];
+    const user = await this.findOne({ email: principal.email, password: principal.password });
+    return user;
+};
+userSchema.statics.findByIdList = async function (ids) {
+    const users = await this.find({
+        _id: {
+            $in: ids,
+        },
+    });
+    return users;
 };
 exports.default = mongoose_1.model('User', userSchema);

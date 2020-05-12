@@ -1,7 +1,7 @@
 import ErrorWithStatusCode from './ErrorWithStatusCode';
 
-export default class UserNotFoundError extends ErrorWithStatusCode {
+export default class AccessDeniedError extends ErrorWithStatusCode {
   constructor(message: string) {
-    super(message, 400);
+    super(message, 403);
   }
 }

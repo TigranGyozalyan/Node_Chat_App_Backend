@@ -16,7 +16,7 @@ export const loginMiddleware = async (req: express.Request, res: express.Respons
     const jwtToken = jwtService.generateToken(user);
     res
       .status(200)
-      .header('Authorization', `Bearer ${jwtToken}`)
+      .header('Authorization', jwtToken)
       .send();
   } catch (e) {
     res
@@ -26,14 +26,15 @@ export const loginMiddleware = async (req: express.Request, res: express.Respons
 };
 
 export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
-  const token = req.header('Authorization');
+  let token = req.header('Authorization');
   if (token) {
+    token = token.replace('Bearer ', '');
     try {
       req.user = jwtService.validateToken(token);
       next();
     } catch (e) {
       res
-        .status(e.statusCode)
+        .status(403)
         .send(e.message);
     }
   } else {

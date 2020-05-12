@@ -13,11 +13,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const http = __importStar(require("http"));
 const express_1 = __importDefault(require("express"));
 const UserController_1 = __importDefault(require("../controller/UserController"));
+const RoomController_1 = __importDefault(require("../controller/RoomController"));
 exports.default = async ({ app }) => {
     app.use(express_1.default.json());
     app.get('/', (req, res) => {
         res.send('Hello World');
     });
     app.use(UserController_1.default);
+    app.use(RoomController_1.default);
     return http.createServer(app);
 };

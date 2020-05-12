@@ -11,10 +11,5 @@ const MessageSchema = new mongoose_1.Schema({
         ref: 'User',
         required: true,
     },
-    room: {
-        type: mongoose_1.Schema.Types.ObjectId,
-        ref: 'Room',
-        required: true,
-    },
-});
+}, { timestamps: true });
 exports.default = mongoose_1.model('Message', MessageSchema);

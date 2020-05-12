@@ -17,7 +17,7 @@ exports.loginMiddleware = async (req, res) => {
         const jwtToken = jwtService.generateToken(user);
         res
             .status(200)
-            .header('Authorization', `Bearer ${jwtToken}`)
+            .header('Authorization', jwtToken)
             .send();
     }
     catch (e) {
@@ -27,15 +27,16 @@ exports.loginMiddleware = async (req, res) => {
     }
 };
 exports.authMiddleware = async (req, res, next) => {
-    const token = req.header('Authorization');
+    let token = req.header('Authorization');
     if (token) {
+        token = token.replace('Bearer ', '');
         try {
             req.user = jwtService.validateToken(token);
             next();
         }
         catch (e) {
             res
-                .status(e.statusCode)
+                .status(403)
                 .send(e.message);
         }
     }

@@ -21,13 +21,13 @@ userRouter.post('/user', async (req, res) => {
 });
 userRouter.get('/user', security_1.authMiddleware, async (req, res) => {
     try {
-        const user = await userService.getUserById(req.user);
+        const user = await userService.getPopulatedUser(req.user);
         res
             .status(200)
             .send(user);
     }
     catch (e) {
-        res.status(e.statusCode)
+        res.status(e.statusCode || 500)
             .send(e.message);
     }
 });

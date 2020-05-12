@@ -6,6 +6,7 @@ import isEmail from 'validator/lib/isEmail';
 import EncryptionUtil from '../../util/EncryptionUtil';
 import { UserPrincipal } from '../dto/UserPrincipal';
 
+
 export interface IUser extends Document {
   firstName: string;
   lastName?: string;
@@ -14,7 +15,8 @@ export interface IUser extends Document {
 }
 
 export interface IUserModel extends Model<IUser> {
-  findByCredentials(principal: UserPrincipal): Promise<IUser>
+  findByCredentials(principal: UserPrincipal): Promise<IUser>,
+  findByIdList(ids: Array<IUser['_id']>): Promise<Array<IUser>>
 }
 
 const userSchema: Schema = new Schema({
@@ -53,8 +55,17 @@ userSchema.pre<IUser>('save', function (next): void {
 });
 
 userSchema.statics.findByCredentials = async function (principal: UserPrincipal): Promise<IUser> {
-  const user: IUser[] = await this.find({ email: principal.email, password: principal.password });
-  return user[0];
+  const user: IUser = await this.findOne({ email: principal.email, password: principal.password });
+  return user;
+};
+
+userSchema.statics.findByIdList = async function (ids: Array<IUser['_id']>): Promise<Array<IUser>> {
+  const users = await this.find({
+    _id: {
+      $in: ids,
+    },
+  });
+  return users;
 };
 
 export default model<IUser, IUserModel>('User', userSchema);

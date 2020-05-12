@@ -15,7 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typedi_1 = require("typedi");
 const User_1 = __importDefault(require("../domain/model/User"));
 const Mapper_1 = __importDefault(require("../mapper/Mapper"));
-const UserNotFoundError_1 = require("../exception/UserNotFoundError");
+const UserNotFoundError_1 = __importDefault(require("../exception/UserNotFoundError"));
+const RoomService_1 = __importDefault(require("./RoomService"));
 let UserService = class UserService {
     async createUser(dto) {
         const { firstName, lastName, email, password, } = dto;
@@ -31,22 +32,37 @@ let UserService = class UserService {
     async getUserByCredentials(principal) {
         const user = await User_1.default.findByCredentials(principal);
         if (user) {
-            return this.mapper.toDto(user);
+            return this.mapper.toUserDto(user);
         }
-        throw new UserNotFoundError_1.UserNotFoundError('User not found');
+        throw new UserNotFoundError_1.default('User not found');
     }
     async getUserById(_id) {
         const user = await User_1.default.findById(_id);
         if (user) {
-            return this.mapper.toDto(user);
+            return this.mapper.toUserDto(user);
         }
-        throw new UserNotFoundError_1.UserNotFoundError('User not found');
+        throw new UserNotFoundError_1.default('User not found');
+    }
+    async getUsersByIdList(_ids) {
+        return await User_1.default.findByIdList(_ids);
+    }
+    async getPopulatedUser(_id) {
+        const user = await User_1.default.findById(_id);
+        if (user) {
+            const rooms = await this.roomService.getRoomsByUserId(_id);
+            return this.mapper.toPopulatedUserDto(user, rooms);
+        }
+        throw new UserNotFoundError_1.default('User not found');
     }
 };
 __decorate([
     typedi_1.Inject(),
     __metadata("design:type", Mapper_1.default)
 ], UserService.prototype, "mapper", void 0);
+__decorate([
+    typedi_1.Inject((type) => RoomService_1.default),
+    __metadata("design:type", RoomService_1.default)
+], UserService.prototype, "roomService", void 0);
 UserService = __decorate([
     typedi_1.Service()
 ], UserService);

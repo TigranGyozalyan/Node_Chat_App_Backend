@@ -2,15 +2,15 @@ import {
   Document, Model, model, Schema,
 } from 'mongoose';
 import { IUser } from './User';
-import { IRoom } from './Room';
 
 export interface IMessage extends Document {
   content: string,
   user: IUser['_id'],
-  room: IRoom['_id'],
+  postedAt: Date
 }
 
-export interface IMessageModel extends Model<IMessage> { }
+export interface IMessageModel extends Model<IMessage> {
+}
 
 const MessageSchema = new Schema({
   content: {
@@ -22,11 +22,6 @@ const MessageSchema = new Schema({
     ref: 'User',
     required: true,
   },
-  room: {
-    type: Schema.Types.ObjectId,
-    ref: 'Room',
-    required: true,
-  },
-});
+}, { timestamps: true });
 
 export default model<IMessage, IMessageModel>('Message', MessageSchema);
