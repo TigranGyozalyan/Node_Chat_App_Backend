@@ -1,4 +1,9 @@
 import socketIo from 'socket.io';
 import { Server } from 'http';
+import instantiate from '../controller/SocketController';
 
-export default async (server: Server): Promise<any> => socketIo(server);
+
+export default (server: Server): void => {
+  const io = socketIo(server);
+  instantiate(io);
+};

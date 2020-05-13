@@ -9,6 +9,6 @@ const socketioLoader_1 = __importDefault(require("./socketioLoader"));
 exports.default = async ({ app }) => {
     await mongooseLoader_1.default();
     const server = await expressLoader_1.default({ app });
-    await socketioLoader_1.default(server);
+    socketioLoader_1.default(server);
     return server;
 };

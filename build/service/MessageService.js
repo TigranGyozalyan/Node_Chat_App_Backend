@@ -14,7 +14,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typedi_1 = require("typedi");
 const Mapper_1 = __importDefault(require("../mapper/Mapper"));
+const Message_1 = __importDefault(require("../domain/model/Message"));
 let MessageService = class MessageService {
+    async addMessage(dto) {
+        const { content, byUser, postedAt } = dto;
+        const message = new Message_1.default({
+            content,
+            user: byUser,
+            postedAt,
+        });
+        await message.save();
+        return message;
+    }
 };
 __decorate([
     typedi_1.Inject(),

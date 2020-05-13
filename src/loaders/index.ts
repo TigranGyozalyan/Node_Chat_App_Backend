@@ -9,7 +9,7 @@ export default async ({ app } : {app: express.Application}): Promise<Server> => 
 
   const server = await expressLoader({ app });
 
-  await socketioLoader(server);
+  socketioLoader(server);
 
   return server;
 };

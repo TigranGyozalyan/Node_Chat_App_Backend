@@ -4,4 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const socket_io_1 = __importDefault(require("socket.io"));
-exports.default = async (server) => socket_io_1.default(server);
+const SocketController_1 = __importDefault(require("../controller/SocketController"));
+exports.default = (server) => {
+    const io = socket_io_1.default(server);
+    SocketController_1.default(io);
+};

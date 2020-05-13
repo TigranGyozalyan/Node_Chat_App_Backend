@@ -8,7 +8,7 @@ import { MessageDto } from '../domain/dto/MessageDto';
 
 @Service()
 export default class Mapper {
-  toUserDto(user: IUser): UserDto {
+  toUserDto = (user: IUser): UserDto => {
     const {
       firstName, lastName, email, _id,
     } = user;
@@ -18,20 +18,21 @@ export default class Mapper {
       lastName,
       email,
     };
-  }
+  };
 
-  toRoomDto(room: IRoom): RoomDto {
+  toRoomDto = (room: IRoom): RoomDto => {
     const {
       users, messages, _id,
     } = room;
+
     return {
       _id,
       users,
       messages: messages.map((message) => this.toMessageDto(message)),
     };
-  }
+  };
 
-  toMessageDto(message: IMessage): MessageDto {
+  toMessageDto = (message: IMessage): MessageDto => {
     const {
       content,
       postedAt,
@@ -43,7 +44,7 @@ export default class Mapper {
       postedAt,
       byUser: user,
     };
-  }
+  };
 
   toPopulatedUserDto(user: IUser, rooms: Array<RoomDto>) {
     const userDto = this.toUserDto(user);

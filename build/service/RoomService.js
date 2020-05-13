@@ -18,7 +18,15 @@ const Mapper_1 = __importDefault(require("../mapper/Mapper"));
 const MessageService_1 = __importDefault(require("./MessageService"));
 const AccessDeniedError_1 = __importDefault(require("../exception/AccessDeniedError"));
 const UserService_1 = __importDefault(require("./UserService"));
+const NotFoundError_1 = __importDefault(require("../exception/NotFoundError"));
 let RoomService = class RoomService {
+    async getRoomById(_id) {
+        const room = await Room_1.default.findById(_id);
+        if (room) {
+            return room;
+        }
+        throw new NotFoundError_1.default('Room not found');
+    }
     async createRoom(dto, creatorId) {
         const { users } = dto;
         if (!users.includes(creatorId._id)) {
@@ -33,16 +41,28 @@ let RoomService = class RoomService {
     }
     async getRoomsByUserId(_id) {
         const rooms = await Room_1.default.findByUserId(_id);
-        rooms.forEach((room) => room.populate('messages'));
+        const populationPromises = rooms.map((room) => {
+            room.populate('messages');
+            return room.execPopulate();
+        });
+        await Promise.all(populationPromises);
         return rooms.map(this.mapper.toRoomDto);
     }
     async updateRoom(dto) {
         const { _id, users } = dto;
         const userDocuments = await this.userService.getUsersByIdList(users);
-        await Room_1.default.updateOne({ _id }, {
-            users: userDocuments,
-        });
-        return dto;
+        const room = await this.getRoomById(_id);
+        room.users = userDocuments;
+        await room.save();
+        return this.mapper.toRoomDto(room);
+    }
+    async addMessageToRoom(messageDto) {
+        const message = await this.messageService.addMessage(messageDto);
+        const room = await this.getRoomById(messageDto.roomId);
+        const { _id: messageId } = message;
+        room.messages = [...room.messages, messageId];
+        await room.save();
+        return this.mapper.toRoomDto(room);
     }
 };
 __decorate([

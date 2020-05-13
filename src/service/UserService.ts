@@ -3,7 +3,7 @@ import User, { IUser } from '../domain/model/User';
 import { UserDto } from '../domain/dto/UserDto';
 import { UserPrincipal } from '../domain/dto/UserPrincipal';
 import Mapper from '../mapper/Mapper';
-import UserNotFoundError from '../exception/UserNotFoundError';
+import NotFoundError from '../exception/NotFoundError';
 import { PopulatedUserDto } from '../domain/dto/PopulatedUserDto';
 import RoomService from './RoomService';
 
@@ -38,7 +38,7 @@ export default class UserService {
     if (user) {
       return this.mapper.toUserDto(user);
     }
-    throw new UserNotFoundError('User not found');
+    throw new NotFoundError('User not found');
   }
 
   async getUserById(_id: IUser['_id']): Promise<UserDto> {
@@ -47,11 +47,17 @@ export default class UserService {
     if (user) {
       return this.mapper.toUserDto(user);
     }
-    throw new UserNotFoundError('User not found');
+    throw new NotFoundError('User not found');
   }
 
   async getUsersByIdList(_ids: Array<IUser['_id']>): Promise<Array<IUser>> {
-    return await User.findByIdList(_ids);
+    const users = await User.findByIdList(_ids);
+
+    if (users) {
+      return users;
+    }
+
+    throw new NotFoundError('Users not found');
   }
 
 
@@ -62,6 +68,6 @@ export default class UserService {
       const rooms = await this.roomService.getRoomsByUserId(_id);
       return this.mapper.toPopulatedUserDto(user, rooms);
     }
-    throw new UserNotFoundError('User not found');
+    throw new NotFoundError('User not found');
   }
 }

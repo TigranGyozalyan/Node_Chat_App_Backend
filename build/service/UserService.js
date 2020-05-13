@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typedi_1 = require("typedi");
 const User_1 = __importDefault(require("../domain/model/User"));
 const Mapper_1 = __importDefault(require("../mapper/Mapper"));
-const UserNotFoundError_1 = __importDefault(require("../exception/UserNotFoundError"));
+const NotFoundError_1 = __importDefault(require("../exception/NotFoundError"));
 const RoomService_1 = __importDefault(require("./RoomService"));
 let UserService = class UserService {
     async createUser(dto) {
@@ -34,17 +34,21 @@ let UserService = class UserService {
         if (user) {
             return this.mapper.toUserDto(user);
         }
-        throw new UserNotFoundError_1.default('User not found');
+        throw new NotFoundError_1.default('User not found');
     }
     async getUserById(_id) {
         const user = await User_1.default.findById(_id);
         if (user) {
             return this.mapper.toUserDto(user);
         }
-        throw new UserNotFoundError_1.default('User not found');
+        throw new NotFoundError_1.default('User not found');
     }
     async getUsersByIdList(_ids) {
-        return await User_1.default.findByIdList(_ids);
+        const users = await User_1.default.findByIdList(_ids);
+        if (users) {
+            return users;
+        }
+        throw new NotFoundError_1.default('Users not found');
     }
     async getPopulatedUser(_id) {
         const user = await User_1.default.findById(_id);
@@ -52,7 +56,7 @@ let UserService = class UserService {
             const rooms = await this.roomService.getRoomsByUserId(_id);
             return this.mapper.toPopulatedUserDto(user, rooms);
         }
-        throw new UserNotFoundError_1.default('User not found');
+        throw new NotFoundError_1.default('User not found');
     }
 };
 __decorate([
