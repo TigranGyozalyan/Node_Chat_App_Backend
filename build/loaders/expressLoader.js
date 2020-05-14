@@ -12,9 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = __importStar(require("http"));
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
 const UserController_1 = __importDefault(require("../controller/UserController"));
 const RoomController_1 = __importDefault(require("../controller/RoomController"));
+const security_1 = require("../security");
 exports.default = async ({ app }) => {
+    app.use(cors_1.default(security_1.corsConfig));
     app.use(express_1.default.json());
     app.get('/', (req, res) => {
         res.send('Hello World');

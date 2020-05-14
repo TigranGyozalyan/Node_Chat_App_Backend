@@ -1,9 +1,11 @@
 import { Container } from 'typedi';
 import express, { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
 import UserService from '../service/UserService';
 import { UserPrincipal } from '../domain/dto/UserPrincipal';
 import EncryptionUtil from '../util/EncryptionUtil';
 import JWTService from '../service/JWTService';
+
 
 const userService: UserService = Container.get(UserService);
 const jwtService: JWTService = Container.get(JWTService);
@@ -42,4 +44,18 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
       .status(403)
       .send();
   }
+};
+
+export const corsConfig: cors.CorsOptions = {
+  origin: '*',
+  allowedHeaders: [
+    'Authorization', 'Access-Control-Allow-Origin', 'Content-Type', 'Cache-Control', 'X-Requested-With',
+  ],
+  credentials: true,
+  exposedHeaders: [
+    'Content-Disposition', 'Location', 'Authorization',
+  ],
+  methods: [
+    'GET', 'POST', 'PUT', 'PATCH', 'DELETE',
+  ],
 };

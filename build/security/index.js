@@ -46,3 +46,16 @@ exports.authMiddleware = async (req, res, next) => {
             .send();
     }
 };
+exports.corsConfig = {
+    origin: '*',
+    allowedHeaders: [
+        'Authorization', 'Access-Control-Allow-Origin', 'Content-Type', 'Cache-Control', 'X-Requested-With',
+    ],
+    credentials: true,
+    exposedHeaders: [
+        'Content-Disposition', 'Location', 'Authorization',
+    ],
+    methods: [
+        'GET', 'POST', 'PUT', 'PATCH', 'DELETE',
+    ],
+};
