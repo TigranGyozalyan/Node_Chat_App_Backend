@@ -11,7 +11,7 @@ const userService: UserService = Container.get(UserService);
 userRouter.post('/user', async (req, res) => {
   try {
     await userService.createUser(req.body);
-    res.status(200).send();
+    res.status(204).send();
   } catch (e) {
     res.status(400)
       .send(e.message);
