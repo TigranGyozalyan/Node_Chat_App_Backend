@@ -29,6 +29,7 @@ export default class Mapper {
       _id,
       users,
       messages: messages.map((message) => this.toMessageDto(message)),
+      roomName: 'Test Room',
     };
   };
 

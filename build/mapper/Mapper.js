@@ -24,6 +24,7 @@ let Mapper = class Mapper {
                 _id,
                 users,
                 messages: messages.map((message) => this.toMessageDto(message)),
+                roomName: 'Test Room',
             };
         };
         this.toMessageDto = (message) => {

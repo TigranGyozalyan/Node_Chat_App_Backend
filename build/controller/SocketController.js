@@ -16,7 +16,7 @@ const instantiate = (io) => {
         socket.on('send', async (message) => {
             console.log(message);
             await roomService.addMessageToRoom(message);
-            io.to(message.roomId).emit('success');
+            io.to(message.roomId).emit('success', message);
         });
     });
 };

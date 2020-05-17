@@ -10,8 +10,7 @@ const instantiate = (io: socketIo.Server) => {
   io.on('connect', (socket) => {
     console.log('New connection');
 
-
-    socket.on('join', (data: string) => {
+    socket.on('join', (data: string[]) => {
       console.log(data);
       socket.join(data);
     });
@@ -21,7 +20,7 @@ const instantiate = (io: socketIo.Server) => {
 
       await roomService.addMessageToRoom(message);
 
-      io.to(message.roomId).emit('success');
+      io.to(message.roomId).emit('success', message);
     });
   });
 };

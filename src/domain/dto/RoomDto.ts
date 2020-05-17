@@ -5,5 +5,6 @@ import { IRoom } from '../model/Room';
 export interface RoomDto {
   _id?: IRoom['_id'],
   users: Array<UserDto>,
-  messages: MessageDto[]
+  messages: MessageDto[],
+  roomName?: string;
 }
