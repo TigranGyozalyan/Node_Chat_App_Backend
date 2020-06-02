@@ -46,6 +46,13 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
   }
 };
 
+export const logOutMiddleware = (req: Request, res: Response) => {
+  req.user = '';
+  res
+    .status(200)
+    .send();
+};
+
 export const corsConfig: cors.CorsOptions = {
   origin: '*',
   allowedHeaders: [

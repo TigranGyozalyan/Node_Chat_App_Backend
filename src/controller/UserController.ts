@@ -2,7 +2,7 @@ import express, { Router } from 'express';
 import { Container } from 'typedi';
 
 import UserService from '../service/UserService';
-import { loginMiddleware, authMiddleware } from '../security';
+import {loginMiddleware, authMiddleware, logOutMiddleware} from '../security';
 
 
 const userRouter: Router = express.Router();
@@ -31,5 +31,7 @@ userRouter.get('/user', authMiddleware, async (req, res) => {
 });
 
 userRouter.post('/login', loginMiddleware);
+
+userRouter.post('/logout', logOutMiddleware);
 
 export default userRouter;
