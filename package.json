@@ -21,7 +21,7 @@
     "socket.io": "^2.3.0",
     "typedi": "^0.8.0",
     "utf8": "^3.0.0",
-    "validator": "^13.0.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
